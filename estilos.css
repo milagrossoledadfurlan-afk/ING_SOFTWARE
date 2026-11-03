@@ -1,0 +1,170 @@
+/* Mis estilos. Esta primera regla es solo para probar que está enganchado. */
+
+body {
+  color: rgba(243, 242, 248, 0.952);
+  padding: 12px;
+  margin:0;
+ background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(23, 23, 23, 0.7)), url("uader.jpg");
+  background-repeat: repeat;
+  background-size: 120px;
+padding-left: 230px;
+}
+
+h1 {
+  color: #d7dada;
+  text-align: center;
+  gap: 30px;
+}
+
+h2 {
+  color: #d6e6f0;
+  border-bottom: 1px solid #ccc;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #c6c1c1;
+  border-radius: 4px;
+}
+main {
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  background: #1f4a63;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+
+main {
+  flex: 1;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgb(255, 255, 255);
+  margin-top: 10px;
+}
+th, td {
+  border: 1px solid #edecee;
+  padding: 8px 10px;
+  text-align: left;
+  color: #000000;
+}
+th {
+  background: #ffffff;
+  color: rgb(18, 17, 17);
+}
+tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+tbody tr:hover {
+  background: #025396;
+}
+header {
+  background: #ff0808;
+  background-image: url("parahead.jpg");
+  display: flex;
+  color: white;
+  padding: 25px 20px;
+  justify-content: space-between;
+  align-items: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+  
+}
+header span {
+  color: rgb(247, 246, 247);
+  opacity: 0.85;
+}
+header b {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin: 0;
+}
+
+dt {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6ed1ea;
+}
+
+dd {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+footer {
+  background: #1f4a63;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+}
+section {
+  background: #060b26;
+  padding: 20px 25px;
+  margin: 0 auto 30px;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 10;
+  width: 230px;
+  border-right: 1px solid #000000;
+  padding: 20px 12px;
+}
+
+nav small {
+  display: block;
+  padding: 0 12px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #dbd7d7;
+}
+
+nav a {
+  display: block;
+  padding: 15px 15px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  color: #fcfcfc;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+nav a:hover {
+  background: #031d67;
+  border-left-color: #009cc3;
+  color: #6ed1ea;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sistema de Gestión y Seguimiento de Pericias</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+ <div class="titulo-sistema">
+  <b>JustiData</b>
+  <small>Gestión y Seguimiento de Pericias</small>
+</div>
+  <span>Operador administrativo: M. Furlan | Sesión iniciada | <a href="#carga">Cerrar sesión</a></span>
+  
+</header>
+<div class="contenedor"></div>
+<div>
+<nav>
+  <small>Pericias</small>
+  <a href="#carga">Cargar informe</a>
+  <a href="#busqueda">Buscar informes</a>
+  <a href="#informe">Ver informe</a>
+</nav>
+<main>
+
+<section id="carga">
+  <h1>Cargar nuevo informe</h1>
+  <p>Registra un movimiento en una pericia existente. El primero es el Informe Pericial, los siguientes son Ampliaciones.</p>
+  <div>
+    <h2>Pericia</h2>
+    <div>
+      <div><label for="f-org">Organismo solicitante</label>
+        <select id="f-org"><option>Juzgado Civil y Comercial</option><option>Fiscalía de Instrucción</option><option>Estudio juridico </option></select></div>
+      <div><label for="f-num">Número de pericia</label><input id="f-num"></div>
+      <div><label for="f-tipo">Tipo de pericia</label><input id="f-tipo" readonly></div>
+      <div><label for="f-exp">Expediente</label><input id="f-exp" value="Expediente. 1234-Ingenieria software 1" readonly></div>
+    </div>
+    <p>Organismo + número identifican la pericia. Al elegirlos, tipo y expediente se completan solos.</p>
+  </div>
+  <div>
+    <h2>Movimiento</h2>
+    <div>
+      <div><label for="f-fecha">Fecha</label><input id="f-fecha" type="date" value="2026-11-02"></div>
+      <div><label for="f-act">Tipo de actividad</label>
+        <select id="f-act"><option>Elaboración del informe final</option><option>Entrevista / evaluación</option><option>Análisis de documentación</option><option>Pruebas técnicas</option><option>Asignación de peritos</option></select></div>
+      <div><label for="f-clase">Presentación</label><input id="f-clase" value="Ampliación de Pericia (2.º movimiento)" readonly></div>
+      <div><label for="f-perito">Perito responsable</label>
+        <select id="f-perito"><option>Lic. Valentino Gallay – Informática</option><option>Ing. Iara Bifiger – Informática</option></select></div>
+      <div><label for="f-desc">Descripción detallada</label><textarea id="f-desc" rows="4" placeholder="Describí qué se hizo y qué se concluyó en esta actuación."></textarea></div>
+      <div><label for="f-estado">Estado de la pericia</label>
+        <select id="f-estado"><option>Solicitada</option><option>En análisis</option><option>En proceso de evaluación</option><option selected>En elaboración de informe</option><option>Finalizada</option><option>Suspendida</option><option>Cancelada</option><option>Impugnada</option></select></div>
+      <div><label for="f-user">Cargado por</label><input id="f-user" value="C. Montani (Operadora administrativa)" readonly></div>
+    </div>
+  </div>
+  <div><button onclick="alert('Prototipo: informe guardado.')">Guardar informe</button><button onclick="location.hash='busqueda'">Cancelar</button></div>
+</section>
+
+<section id="busqueda">
+  <h1>Buscar informes</h1>
+  <p>Completa el siguiente cuestionario</p>
+  <div>
+    <div>
+      <div><label for="b-org">Organismo</label><select id="b-org"><option value="">Todos</option><option>Juzgado Civil y Comercial</option><option>Fiscalía de Instrucción</option><option>Estudio contable</option></select></div>
+      <div><label for="b-num">Número de pericia</label><input id="b-num" placeholder="Ej.: 1482/2026"></div>
+      <div><label for="b-tipo">Tipo de pericia</label><select id="b-tipo"><option value="">Todos</option><option>Médica</option><option>Psicológica</option><option>Informática</option><option>Contable</option><option>Accidentológica</option><option>Documentológica</option></select></div>
+      <div><label for="b-est">Estado</label><select id="b-est"><option value="">Todos</option><option>Solicitada</option><option>En análisis</option><option>En elaboración de informe</option><option>Finalizada</option><option>Impugnada</option></select></div>
+      <div><label for="b-per">Perito</label><input id="b-per" placeholder="Apellido o matrícula"></div>
+      <div><label for="b-d">Desde</label><input id="b-d" type="date"></div>
+      <div><label for="b-h">Hasta</label><input id="b-h" type="date"></div>
+    </div>
+    <div><button onclick="document.getElementById('res').hidden=false">Buscar</button><button onclick="document.getElementById('res').hidden=true">Limpiar</button></div>
+  </div>
+  <div id="res" hidden>
+    <h2>3 informes encontrados</h2>
+    <div><table>
+      <thead><tr><th>Organismo</th><th>N.º pericia</th><th>Tipo</th><th>Presentación</th><th>Fecha</th><th>Perito</th><th>Estado</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Juzgado Civil y Comercial</td><td>1482/2026</td><td>Informática</td><td>Informe Pericial</td><td>14/10/2026</td><td>Furlan</td><td><span>En elaboración</span></td><td><a href="#informe">Ver</a></td></tr>
+        <tr><td>Fiscalía de Instrucción</td><td>0377/2026</td><td>Contable</td><td>Ampliación de Pericia</td><td>28/10/2026</td><td>Bifiger</td><td><span>Finalizada</span></td><td><a href="#informe">Ver</a></td></tr>
+        <tr><td>Estudio juridico</td><td>0095/2026</td><td>Psicológica</td><td>Informe Pericial</td><td>02/10/2026</td><td>Montani</td><td><span>Impugnada</span></td><td><a href="#informe">Ver</a></td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<section id="informe">
+  <h1>Pericia 1482/2026 - Juzgado Civil y Comercial</h1>
+  <p>Informe por pantalla · <span>En elaboración de informe</span> <span>Pago pendiente</span></p>
+  <div>
+    <h2>Datos generales</h2>
+    <dl>
+      <div><dt>Tipo de pericia</dt><dd>Informática (área: Sistemas)</dd></div>
+      <div><dt>Expediente</dt><dd>Expte. 20458 – Gallay Valentino</dd></div>
+      <div><dt>Fecha de solicitud</dt><dd>06/10/2026</dd></div>
+      <div><dt>Área técnica</dt><dd>Peritaje</dd></div>
+      <div><dt>Descripción del caso</dt><dd>Análisis de registros de transferencias electrónicas y verificación de integridad de los respaldos aportados por las partes.</dd></div>
+    </dl>
+  </div>
+  <div>
+    <h2>Personas involucradas</h2>
+    <div><table>
+      <thead><tr><th>Apellido y nombre</th><th>Documento</th><th>Rol en la pericia</th><th>Especialidad / matrícula</th></tr></thead>
+      <tbody>
+        <tr><td>Montani Candela</td><td>DNI 28.114.502</td><td>Perito oficial</td><td>Informática  Mat. 2214 (Colegio de Profesionales en Informática de la Uader)</td></tr>
+        <tr><td>Gallay Valentino</td><td>DNI 31.902.776</td><td>Perito de parte</td><td>Informática, Seguridad · Mat. 3088</td></tr>
+        <tr><td>Furlan Milagros</td><td>DNI 24.550.318</td><td>Solicitante</td><td>—</td></tr>
+        <tr><td>Bifiger Iara</td><td>DNI 35.120.044</td><td>Testigo</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div>
+    <h2>Movimientos</h2>
+    <div>
+      <div><b>14/10/2026 - Informe Pericial</b> - Pruebas técnicas<br>Se realizó la copia forense de los respaldos y se verificó. <span>Cargó: I. Biffiger</span></div>
+      <div><b>28/10/2026 - Ampliación de Pericia</b> - Análisis de documentación<br>Se cruzaron los registros con los comprobantes bancarios aportados. <span>Cargó: V.  Gallay</span></div>
+    </div>
+    <h2>Actividades programadas</h2>
+    <div><table>
+      <thead><tr><th>Fecha y hora</th><th>Lugar</th><th>Actividad</th><th>Responsable</th><th>Convocados</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>09/11/2026 </td><td>Sede JustiData</td><td>Entrevista técnica</td><td>Furlan</td><td>Maria</td><td><span>Programada</span></td></tr>
+        <tr><td>20/10/2026 </td><td>Juzgado Civil</td><td>Reunión técnica</td><td>Bifiger</td><td>Juan</td><td><span>Realizada</span></td></tr>
+      </tbody></table></div>
+  </div>
+  <div>
+    <h2>Historial de estados</h2>
+    <div><table>
+      <thead><tr><th>Fecha</th><th>Estado</th><th>Usuario</th></tr></thead>
+      <tbody><tr><td>06/10/2026</td><td>Solicitada</td><td>M. Candela</td></tr><tr><td>09/10/2026</td><td>En análisis</td><td>M. Candela</td></tr><tr><td>28/10/2026</td><td>En elaboración de informe</td><td>V. Gallay</td></tr></tbody></table></div>
+  </div>
+  <div>
+    <h2>Honorarios y pagos</h2>
+    <dl><div><dt>Arancel base</dt><dd>$ 450.000</dd></div><div><dt>Modalidad de pago:</dt><dd>Efectivo</dd></div><div><dt>Estado del pago</dt><dd>Pendiente</dd></div></dl>
+  </div>
+<div><button>Imprimir</button><button onclick="location.hash='busqueda'">Volver a la búsqueda</button></div>
+</main>
+</div>
+<footer>JustiData Solutions S.A. interfaces Ingeniería de Software I – UADER FCyT 2026</footer>
+</body>
+</html>
